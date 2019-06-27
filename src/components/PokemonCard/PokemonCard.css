@@ -20,8 +20,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 5px 15px #ccc;
+  /* box-shadow: 5px 5px 15px #ccc; */
   position: relative;
+  background: white;
 }
 
 .pokeball {

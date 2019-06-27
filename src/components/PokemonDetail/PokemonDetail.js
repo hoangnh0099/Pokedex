@@ -27,8 +27,8 @@ class PokemonDetail extends Component {
 
   render() {
     const id = this.props.match.params.id;
-    const { name, weight, height } = this.state.pokemons;
-    console.log(this.state.pokemons);
+    const { name = "", weight, height } = this.state.pokemons;
+    // console.log(this.state.pokemons);
     return (
       <div className="PokemonDetail">
         <div className="pokemon-info">
@@ -36,12 +36,12 @@ class PokemonDetail extends Component {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="" />
           </div>
           <div className="pokemon-detail">
-            <h1>{name}</h1>
+            <h1>{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
             <div className="type-area">
               {
                 this.state.types.map((type, index) => {
                   return (
-                    <div className="type" key={index}>{type.type.name}</div>
+                    <div className="type" key={index}>{type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}</div>
                   )
                 })
               }
@@ -53,8 +53,8 @@ class PokemonDetail extends Component {
                     this.state.stats.map((stat, index) => {
                       return (
                         <tr key={index}>
-                          <td>{stat.stat.name}</td>
-                          <td className="bar"><div className="info-bar" style={{width: `${stat.base_stat}%`}}>{stat.base_stat}</div></td>
+                          <td>{stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)}</td>
+                          <td className="bar"><div className="info-bar" style={{width: `${stat.base_stat / 2}%`}}>{stat.base_stat}</div></td>
                         </tr>
                       )
                     })
@@ -69,7 +69,7 @@ class PokemonDetail extends Component {
                   </tr>
                   <tr>
                     <td></td>
-                    <td><Link to="/">Back to home</Link></td>
+                    <td><Link to="/">Go back <i class="fas fa-arrow-right"></i></Link></td>
                   </tr>
                 </tbody>
               </table>

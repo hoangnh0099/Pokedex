@@ -1,6 +1,7 @@
 .card-area {
   width: 80%;
-  margin: 50px auto;
+  margin: 0px auto;
+  padding: 50px 0px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
   grid-gap: 50px;
