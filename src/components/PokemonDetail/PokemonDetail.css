@@ -1,0 +1,58 @@
+.PokemonDetail {
+  background-image: url("./../../assets/background.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-info {
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.pokemon-avatar {
+  padding: 50px;
+}
+
+.pokemon-info img {
+  width: 150px;
+}
+
+.pokemon-detail {
+  padding: 50px;
+}
+
+.type-area {
+  margin: 20px 0px;
+  display: flex;
+}
+
+.type {
+  padding: 10px 10px;
+  background: red;
+  color: white;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.stats table {
+  width: 300px;
+  
+}
+
+.bar {
+  width: 100px;
+  /* border: 1px solid black; */
+}
+
+.info-bar {
+  height: 20px;
+  background-color: red;
+  /* width: 50%; */
+}

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import './PokemonCard.css';
+import { Link } from 'react-router-dom';
 
 class PokemonCard extends Component {
   constructor() {
@@ -32,7 +33,9 @@ class PokemonCard extends Component {
             <h4>{this.state.pokemonIndex}. {this.state.name.charAt(0).toUpperCase() + this.state.name.slice(1)}</h4>
           </div>
           <img className="pokeball" src="https://img.icons8.com/color/48/000000/pokeball-2.png" alt="" />
-          <img className="pokemon" src={this.state.imageUrl} alt={this.state.name} />
+          <Link to={`/pokemon/${this.state.pokemonIndex}/${this.state.name}`}>
+            <img className="pokemon" src={this.state.imageUrl} alt={this.state.name} />
+          </Link>
         </div>
       </Fragment>
     )
