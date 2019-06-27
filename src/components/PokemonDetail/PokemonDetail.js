@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './PokemonDetail.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class PokemonDetail extends Component {
   constructor() {
     super();
     this.state = {
       pokemons: [],
-      types: {}
+      types: [],
+      stats: []
     }
   }
 
@@ -17,14 +19,15 @@ class PokemonDetail extends Component {
       .then(res => {
         this.setState({
           pokemons: res.data,
-          types: res.data.types
+          types: res.data.types,
+          stats: res.data.stats
         });
       });
   }
 
   render() {
     const id = this.props.match.params.id;
-    const { name, weight } = this.state.pokemons;
+    const { name, weight, height } = this.state.pokemons;
     console.log(this.state.pokemons);
     return (
       <div className="PokemonDetail">
@@ -33,14 +36,10 @@ class PokemonDetail extends Component {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="" />
           </div>
           <div className="pokemon-detail">
-            <h3>{name}</h3>
+            <h1>{name}</h1>
             <div className="type-area">
               {
-                // Array.isArray(this.state.types) && this.state.types.length > 0 &&
-                // this.state.types.map(item => {
-                //   console.log(item.type.name)
-                // })
-                Array.isArray(this.state.types) && this.state.types.map((type, index) => {
+                this.state.types.map((type, index) => {
                   return (
                     <div className="type" key={index}>{type.type.name}</div>
                   )
@@ -51,7 +50,7 @@ class PokemonDetail extends Component {
               <table>
                 <tbody>
                   {
-                    Array.isArray(this.state.pokemons.stats) && this.state.pokemons.stats.map((stat, index) => {
+                    this.state.stats.map((stat, index) => {
                       return (
                         <tr key={index}>
                           <td>{stat.stat.name}</td>
@@ -60,10 +59,21 @@ class PokemonDetail extends Component {
                       )
                     })
                   }
+                  <tr>
+                    <td>Height:</td>
+                    <td><p> {height}</p></td>
+                  </tr>
+                  <tr>
+                    <td>Weight:</td>
+                    <td><p> {weight}</p></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><Link to="/">Back to home</Link></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <p>Weight: {weight}</p>
           </div>
         </div>
       </div >

@@ -43,7 +43,6 @@
 
 .stats table {
   width: 300px;
-  
 }
 
 .bar {
@@ -52,7 +51,14 @@
 }
 
 .info-bar {
-  height: 20px;
+  height: 30px;
+  line-height: 30px;
   background-color: red;
-  /* width: 50%; */
+  padding-left: 5px;
+  color: white;
+}
+
+table tr {
+  height: 30px;
+  line-height: 30px;
 }
