@@ -61,11 +61,11 @@ class PokemonDetail extends Component {
                   }
                   <tr>
                     <td>Height:</td>
-                    <td><p> {height}</p></td>
+                    <td><p> {height / 10} m</p></td>
                   </tr>
                   <tr>
                     <td>Weight:</td>
-                    <td><p> {weight}</p></td>
+                    <td><p> {weight / 10} kg</p></td>
                   </tr>
                   <tr>
                     <td></td>
